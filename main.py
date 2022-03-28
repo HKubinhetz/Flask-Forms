@@ -3,6 +3,7 @@ from flask import Flask, render_template
 from flask_wtf import FlaskForm
 from wtforms import StringField, SubmitField, PasswordField
 from wtforms.validators import DataRequired, Email, Length
+from flask_bootstrap import Bootstrap
 
 
 # ------------------------------------ CONSTANTS ----------------------------------------
@@ -29,6 +30,7 @@ class MyForm(FlaskForm):
 # ----------------------------------- FLASK SERVER --------------------------------------
 # Creating a Flask Server
 app = Flask(__name__)
+Bootstrap(app)
 
 
 # If route is "root", render index.html:
@@ -43,7 +45,7 @@ def home():
 # GET renders 'login.html'
 
 # POST happens when a client submits the form.
-# POST renders 'success.html'/'denied.html', whether the correct credentials were provided
+# POST renders 'old_success.html'/'denied.html', whether the correct credentials were provided
 
 @app.route("/login", methods=['GET', 'POST'])
 def login():
